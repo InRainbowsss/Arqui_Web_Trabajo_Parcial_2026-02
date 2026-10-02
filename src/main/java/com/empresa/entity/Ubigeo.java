@@ -11,7 +11,6 @@ import lombok.Setter;
 public class Ubigeo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUbigeo")
     private Integer idUbigeo;
 

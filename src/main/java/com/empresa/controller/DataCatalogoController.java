@@ -4,32 +4,32 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.empresa.entity.Pais;
-import com.empresa.service.PaisService;
+import com.empresa.entity.DataCatalogo;
+import com.empresa.service.DataCatalogoService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/pais")
+@RequestMapping("/api/datacatalogo")
 @RequiredArgsConstructor
-public class PaisController {
+public class DataCatalogoController {
 
-	private final PaisService paisService;
+	private final DataCatalogoService dataCatalogoService;
 	
 	@GetMapping
-	public List<Pais> listaTodos(){
-		return paisService.listarTodos();
+	public List<DataCatalogo> listaTodos(){
+		return dataCatalogoService.listarTodos();
 	}
 	
 	@PostMapping
-	public ResponseEntity<Pais> guardar(@RequestBody Pais obj) {
-		Pais objRegistrado = paisService.guardar(obj);
+	public ResponseEntity<DataCatalogo> guardar(@RequestBody DataCatalogo obj) {
+		DataCatalogo objRegistrado = dataCatalogoService.guardar(obj);
 		return new ResponseEntity<>(objRegistrado, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id}")
-    public ResponseEntity<Pais> actualizar(@PathVariable Integer id, @RequestBody Pais obj) {
+    public ResponseEntity<DataCatalogo> actualizar(@PathVariable Integer id, @RequestBody DataCatalogo obj) {
         try {
-        	Pais objActualizado = paisService.actualizar(id, obj);
+        	DataCatalogo objActualizado = dataCatalogoService.actualizar(id, obj);
             return ResponseEntity.ok(objActualizado);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
@@ -38,7 +38,7 @@ public class PaisController {
 	
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-    	paisService.eliminar(id);
+    	dataCatalogoService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 }

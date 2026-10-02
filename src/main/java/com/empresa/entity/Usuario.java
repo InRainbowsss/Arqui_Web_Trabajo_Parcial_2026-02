@@ -37,7 +37,7 @@ public class Usuario {
     private String correo;
 
     @Column(name = "fechaRegistro")
-    private LocalDateTime fechaRegistro;
+    private LocalDate fechaRegistro;
 
     @Column(name = "fechaNacimiento")
     private LocalDate fechaNacimiento;

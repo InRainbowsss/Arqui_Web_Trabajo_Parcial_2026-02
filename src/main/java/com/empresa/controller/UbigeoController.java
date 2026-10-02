@@ -4,32 +4,32 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.empresa.entity.Pais;
-import com.empresa.service.PaisService;
+import com.empresa.entity.Ubigeo;
+import com.empresa.service.UbigeoService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/pais")
+@RequestMapping("/api/ubigeo")
 @RequiredArgsConstructor
-public class PaisController {
+public class UbigeoController {
 
-	private final PaisService paisService;
+	private final UbigeoService ubigeoService;
 	
 	@GetMapping
-	public List<Pais> listaTodos(){
-		return paisService.listarTodos();
+	public List<Ubigeo> listaTodos(){
+		return ubigeoService.listarTodos();
 	}
 	
 	@PostMapping
-	public ResponseEntity<Pais> guardar(@RequestBody Pais obj) {
-		Pais objRegistrado = paisService.guardar(obj);
+	public ResponseEntity<Ubigeo> guardar(@RequestBody Ubigeo obj) {
+		Ubigeo objRegistrado = ubigeoService.guardar(obj);
 		return new ResponseEntity<>(objRegistrado, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id}")
-    public ResponseEntity<Pais> actualizar(@PathVariable Integer id, @RequestBody Pais obj) {
+    public ResponseEntity<Ubigeo> actualizar(@PathVariable Integer id, @RequestBody Ubigeo obj) {
         try {
-        	Pais objActualizado = paisService.actualizar(id, obj);
+        	Ubigeo objActualizado = ubigeoService.actualizar(id, obj);
             return ResponseEntity.ok(objActualizado);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
@@ -38,7 +38,7 @@ public class PaisController {
 	
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-    	paisService.eliminar(id);
+    	ubigeoService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 }

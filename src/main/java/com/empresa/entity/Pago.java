@@ -24,6 +24,9 @@ public class Pago {
     @Column(name = "monto", nullable = false, precision = 12, scale = 2)
     private BigDecimal monto;
 
+    @Column(name = "cuota")
+    private Integer cuota;
+    
     @Column(name = "fecha_pago", nullable = false)
     private LocalDate fechaPago;
 

@@ -26,6 +26,9 @@ public class Deuda {
 
     @Column(name = "monto", nullable = false, precision = 12, scale = 2)
     private BigDecimal monto;
+    
+    @Column(name = "cuotas")
+    private Integer cuotas;
 
     @Column(name = "tasa_interes", nullable = false, precision = 5, scale = 2)
     private BigDecimal tasaInteres;

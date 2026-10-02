@@ -4,32 +4,32 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.empresa.entity.Pais;
-import com.empresa.service.PaisService;
+import com.empresa.entity.CategoriaGasto;
+import com.empresa.service.CategoriaGastoService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/pais")
+@RequestMapping("/api/categoriagasto")
 @RequiredArgsConstructor
-public class PaisController {
+public class CategoriaGastoController {
 
-	private final PaisService paisService;
+	private final CategoriaGastoService categoriaGastoService;
 	
 	@GetMapping
-	public List<Pais> listaTodos(){
-		return paisService.listarTodos();
+	public List<CategoriaGasto> listaTodos(){
+		return categoriaGastoService.listarTodos();
 	}
 	
 	@PostMapping
-	public ResponseEntity<Pais> guardar(@RequestBody Pais obj) {
-		Pais objRegistrado = paisService.guardar(obj);
+	public ResponseEntity<CategoriaGasto> guardar(@RequestBody CategoriaGasto obj) {
+		CategoriaGasto objRegistrado = categoriaGastoService.guardar(obj);
 		return new ResponseEntity<>(objRegistrado, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id}")
-    public ResponseEntity<Pais> actualizar(@PathVariable Integer id, @RequestBody Pais obj) {
+    public ResponseEntity<CategoriaGasto> actualizar(@PathVariable Integer id, @RequestBody CategoriaGasto obj) {
         try {
-        	Pais objActualizado = paisService.actualizar(id, obj);
+        	CategoriaGasto objActualizado = categoriaGastoService.actualizar(id, obj);
             return ResponseEntity.ok(objActualizado);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
@@ -38,7 +38,7 @@ public class PaisController {
 	
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-    	paisService.eliminar(id);
+    	categoriaGastoService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 }
