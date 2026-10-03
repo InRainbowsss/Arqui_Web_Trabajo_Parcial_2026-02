@@ -1,6 +1,8 @@
 package com.empresa.service;
 
 import java.util.List;
+import com.empresa.dto.ConsolidacionRequestDTO;
+import com.empresa.dto.DeudaConsolidadaResponseDTO;
 import com.empresa.entity.Deuda;
 
 public interface DeudaService {
@@ -8,4 +10,7 @@ public interface DeudaService {
     public abstract Deuda guardar(Deuda obj);
     public abstract Deuda actualizar(Integer id, Deuda obj);
     public abstract void eliminar(Integer id);
+    
+    // Método para la HU-01 (Consolidación de Deudas)
+    public abstract DeudaConsolidadaResponseDTO consolidarDeudas(ConsolidacionRequestDTO request);
 }
