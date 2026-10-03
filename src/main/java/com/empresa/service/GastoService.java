@@ -1,11 +1,16 @@
 package com.empresa.service;
 
-import java.util.List;
+import com.empresa.dto.GastoFiltroRequestDTO;
+import com.empresa.dto.GastoReporteResponseDTO;
 import com.empresa.entity.Gasto;
+import java.util.List;
 
 public interface GastoService {
-    public abstract List<Gasto> listarTodos();
-    public abstract Gasto guardar(Gasto obj);
-    public abstract Gasto actualizar(Integer id, Gasto obj);
-    public abstract void eliminar(Integer id);
+    List<Gasto> listarTodos();
+    Gasto guardar(Gasto obj);
+    Gasto actualizar(Integer id, Gasto obj);
+    void eliminar(Integer id);
+    
+    // Método para la HU-A
+    GastoReporteResponseDTO obtenerReporteGastosFiltrados(GastoFiltroRequestDTO request);
 }
