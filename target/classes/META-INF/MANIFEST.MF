@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Java-Version: 25
+Java-Version: 17
 Build-Jdk-Spec: 25
 Implementation-Title: ARQ_Grupo_1
 Implementation-Version: 0.0.1-SNAPSHOT
